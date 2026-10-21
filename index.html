@@ -477,31 +477,23 @@ footer {
     <div class="message-box" id="answer"></div>
   </section>
 
-  <!-- MUSIC -->
-  <section class="panel">
-    <p>✦ A LITTLE SOUNDTRACK FOR YOU ✦</p>
-    <h2>JUST LET IT PLAY ♡</h2>
-    <p class="small-text">A little music to keep you company while you explore HEHE</p>
-    <audio
+  <audio
   id="music"
   src="love-song.mp3"
   controls
   loop
-  preload="auto"
+  preload="metadata"
   playsinline
   style="width:100%;">
 </audio>
-  </section>
 
   <!-- SECRET ENDING -->
   <section class="panel hidden" id="final-surprise">
     <p>✦ YOU FOUND YOUR WAY HERE ✦</p>
     <div class="pixel-art">🌟 💗 🌟</div>
     <h1>ONE LAST THING, MY LOVE</h1>
-    <p>You made it through my little world, but here's the truth:</p>
-    <p>No website, no words, and no little game could ever fit all the love I have for you.</p>
+    <p>IF I HAD TO CHOOSE AGAIN, I'D STILL CHOOSE YOU</p>
     <p>Thank you for being you, Shah.</p>
-    <h2>IF I HAD TO CHOOSE AGAIN, I'D STILL CHOOSE YOU. ♡</h2>
     <button onclick="hearts(35)">SEND ME ALL THE HEARTS 💗</button>
   </section>
 
@@ -565,28 +557,7 @@ let heartMessageIndex = 0;
 
 const song = document.getElementById("music");
 
-song.loop = true;
-song.preload = "auto";
-
-song.addEventListener("pause", () => {
-  setTimeout(() => {
-    if (song.paused) {
-      song.play().catch(() => {});
-    }
-  }, 500);
-});
-
-song.addEventListener("ended", () => {
-  song.currentTime = 0;
-  song.play().catch(() => {});
-});
-
-
-document.addEventListener("touchstart", () => {
-  if (song.paused) {
-    song.play().catch(() => {});
-  }
-}, { once: true });
+song.volume = 1;
 
 document.getElementById("login").addEventListener("submit", function(e) {
   e.preventDefault();
@@ -611,11 +582,9 @@ hearts(15);
     // Some browsers may still require a manual press of Play.
     song.volume = 1;
 
-song.play().then(() => {
-    console.log("Music playing");
-}).catch(err => {
-    console.log(err);
-});
+setTimeout(() => {
+  song.play().catch(() => {});
+}, 500);
   } else {
     document.getElementById("error").textContent =
       "NOT QUITE, MY LOVE. TRY AGAIN ♡";
