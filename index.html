@@ -1,0 +1,664 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>To My Dearest Shah ♡</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
+
+* { box-sizing: border-box; }
+
+:root {
+  --bg: #19152e;
+  --panel: #30264d;
+  --pink: #ff8ec7;
+  --cream: #fff1fa;
+  --yellow: #ffe69a;
+  --purple: #594171;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--cream);
+  font-family: 'VT323', monospace;
+  font-size: 23px;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "✦      ·       ✧       ·        ✦      ·       ✧";
+  position: fixed;
+  inset: 0;
+  color: #b99bff;
+  opacity: .14;
+  pointer-events: none;
+  font-size: 30px;
+  line-height: 3;
+  letter-spacing: 20px;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.panel {
+  width: min(92%, 680px);
+  margin: 35px auto;
+  padding: 28px 18px;
+  background: var(--panel);
+  border: 3px solid var(--pink);
+  box-shadow: 6px 6px #090817;
+  position: relative;
+}
+
+h1, h2, h3, button, .pixel {
+  font-family: 'Press Start 2P', monospace;
+}
+
+h1 {
+  color: var(--pink);
+  font-size: clamp(15px, 3vw, 21px);
+  line-height: 1.9;
+}
+
+h2 {
+  color: var(--yellow);
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+h3 {
+  color: var(--pink);
+  font-size: 10px;
+  line-height: 1.8;
+}
+
+p { line-height: 1.5; }
+
+button {
+  color: #251630;
+  background: var(--pink);
+  border: 2px solid #ffc8e4;
+  box-shadow: 3px 3px #100b20;
+  padding: 14px 12px;
+  margin: 7px 4px;
+  font-size: 9px;
+  line-height: 1.8;
+  cursor: pointer;
+  transition: transform .15s, background .15s;
+}
+
+button:hover {
+  background: var(--yellow);
+  transform: translateY(-3px);
+}
+
+button:active {
+  transform: translateY(2px);
+  box-shadow: 1px 1px #100b20;
+}
+
+input {
+  width: min(90%, 330px);
+  padding: 13px;
+  background: var(--bg);
+  color: white;
+  border: 3px solid var(--pink);
+  text-align: center;
+  font: 20px 'VT323', monospace;
+}
+
+.hidden { display: none !important; }
+
+.small-text {
+  color: #d6c6ed;
+  font-size: 19px;
+}
+
+.pixel-art {
+  font-size: 48px;
+  margin: 15px 0;
+  animation: bob 2s ease-in-out infinite;
+}
+
+@keyframes bob {
+  50% { transform: translateY(-7px); }
+}
+
+@keyframes sparkle {
+  50% { opacity: .45; transform: scale(.9); }
+}
+
+.divider {
+  color: var(--pink);
+  letter-spacing: 5px;
+  margin: 18px 0;
+}
+
+.meter {
+  height: 18px;
+  background: var(--bg);
+  border: 2px solid var(--pink);
+  padding: 2px;
+  margin: 18px auto;
+  max-width: 400px;
+}
+
+.meter-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--pink);
+  transition: width .4s ease;
+}
+
+.message-box {
+  margin: 20px auto;
+  padding: 18px;
+  max-width: 480px;
+  min-height: 65px;
+  background: #211a39;
+  border: 2px dashed var(--yellow);
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+
+.letter {
+  white-space: pre-wrap;
+  text-align: left;
+  line-height: 1.7;
+  background: #211a39;
+  border: 2px dashed var(--pink);
+  padding: 20px;
+}
+
+.polaroid-wall {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 22px 15px;
+  max-width: 650px;
+  margin: 25px auto;
+}
+
+.polaroid {
+  width: 155px;
+  max-width: 43%;
+  padding: 8px 8px 5px;
+  background: #fffaf0;
+  box-shadow: 3px 5px 12px #100b20;
+  transform: rotate(-4deg);
+  cursor: pointer;
+  transition: transform .25s;
+}
+
+.polaroid:nth-child(even) { transform: rotate(4deg); }
+.polaroid:nth-child(3n) { transform: rotate(-6deg); }
+
+.polaroid:hover, .polaroid:focus {
+  transform: rotate(0deg) scale(1.06);
+  outline: 2px solid var(--yellow);
+  z-index: 2;
+}
+
+.polaroid img {
+  display: block;
+  width: 100%;
+  height: 155px;
+  object-fit: cover;
+  background: #f7dce9;
+}
+
+.polaroid p {
+  margin: 9px 1px 7px;
+  color: #75465b;
+  font: 13px cursive;
+  line-height: 1.3;
+}
+
+.secret-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  max-width: 440px;
+  margin: 20px auto;
+}
+
+.secret-box {
+  min-height: 105px;
+  background: #211a39;
+  color: var(--pink);
+  border: 2px dashed var(--pink);
+  padding: 12px 5px;
+  box-shadow: none;
+}
+
+.secret-box span {
+  display: block;
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.heart {
+  position: fixed;
+  bottom: -40px;
+  animation: float 4s linear forwards;
+  pointer-events: none;
+  z-index: 20;
+}
+
+@keyframes float {
+  to { transform: translateY(-110vh) rotate(30deg); opacity: 0; }
+}
+
+#score { color: var(--yellow); }
+
+footer {
+  padding: 25px 10px 40px;
+  color: #c9b8e4;
+}
+
+.heart-button {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 12px;
+  margin: 18px auto;
+  font-size: 100px;
+  line-height: 1.2;
+  display: block;
+  cursor: pointer;
+  animation: heartBeat 1.1s infinite;
+  filter: drop-shadow(0 0 12px #ff8ec7);
+}
+
+.heart-button:hover {
+  background: transparent;
+  box-shadow: none;
+  transform: scale(1.08);
+}
+
+.heart-button.heart-tap {
+  animation: tapBeat 0.45s ease;
+}
+
+@keyframes heartBeat {
+  0%, 100% { transform: scale(1); }
+  15% { transform: scale(1.15); }
+  30% { transform: scale(1); }
+  45% { transform: scale(1.12); }
+  60% { transform: scale(1); }
+}
+
+@keyframes tapBeat {
+  0% { transform: scale(1); }
+  30% { transform: scale(1.3); }
+  55% { transform: scale(0.9); }
+  80% { transform: scale(1.18); }
+  100% { transform: scale(1); }
+}
+
+@media (max-width: 420px) {
+  body { font-size: 21px; }
+  .panel { padding: 23px 12px; margin: 25px auto; }
+  .polaroid { width: 138px; }
+  .polaroid img { height: 138px; }
+  button { max-width: 100%; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- WELCOME SCREEN -->
+<section class="panel" id="lock">
+  <p>✦ A LITTLE SUPRISE MADE FOR YOU ✦</p>
+  <h1>Hi, Sayang...</h1>
+  <p>Here's a little gift from me to you. I wanted to make something special that you could keep and come back to whenever you miss me. I hope it reminds you how much you're loved. ♡</p>
+  <div class="divider">♡ · ♡ · ♡</div>
+  <h2>UNLOCK THIS SUPRISE</h2>
+
+  <form id="login">
+    <input id="password" type="password"
+      placeholder="enter our special date" required>
+    <br>
+    <button type="submit">UNLOCK ♡</button>
+  </form>
+  <p id="error" class="small-text"></p>
+</section>
+
+<div id="game" class="hidden">
+
+  <!-- WELCOME -->
+  <section class="panel">
+    <p>✦ A LITTLE SOMETHING FOR YOU ✦</p>
+    <div class="pixel-art">💗 🌙 💗</div>
+    <h1>MY DEAREST SHAH</h1>
+    <p>A little collection of my thoughts, my favourite of our moments, and all the love I sometimes don't know how to put into words.</p>
+    <p class="small-text">I hope this reminds you that somewhere in this big world, there's someone who's really, really glad to have you ♡</p>
+    <button onclick="document.getElementById('heart-game').scrollIntoView({behavior:'smooth'})">
+      LET'S GOOOOO!!! ♡
+    </button>
+  </section>
+
+  <!-- HEART COLLECTING GAME -->
+  <section class="panel" id="heart-game">
+    <p>✦ But first, I need you to do something for me... ✦</p>
+    <h2>COLLECT PIECES OF MY HEART🥺🙏</h2>
+
+    <div class="meter">
+      <div class="meter-fill" id="meter-fill"></div>
+    </div>
+    <p id="score">HEARTS: 0 / 5</p>
+
+    
+<button class="heart-button" id="collect-heart"
+        onclick="collect()" aria-label="Collect Wani's heart">
+  💗
+</button>
+<p class="small-text">Tap my heart to discover what I truly think about you ♡</p>
+
+    <div class="message-box" id="heart-message">
+
+    <div id="heart-reward" class="message-box hidden">
+      ✨ YOU UNLOCKED A LITTLE GIFT ✨
+      <p>Out of all the people in the world, you're still the person my heart looks for.</p>
+      <p>Here's a little kiss from me. 💋</p>
+    </div>
+  </section>
+
+  <!-- MYSTERY BOXES -->
+  <section class="panel">
+    <p>✦ OPEN WHENEVER YOU LIKE ✦</p>
+    <h2>LITTLE SECRETS ABOUT YOU</h2>
+    <p>There are things I love about you that I might not say enough.</p>
+
+    <div class="secret-grid">
+      <button class="secret-box" onclick="revealSecret(0)">
+        <span>🎁</span> A LITTLE COMPLIMENT
+      </button>
+      <button class="secret-box" onclick="revealSecret(1)">
+        <span>💌</span> A LITTLE CONFESSION
+      </button>
+      <button class="secret-box" onclick="revealSecret(2)">
+        <span>🌙</span> A LITTLE WISH
+      </button>
+      <button class="secret-box" onclick="revealSecret(3)">
+        <span>💗</span> A LITTLE PROMISE
+      </button>
+    </div>
+
+    <div class="message-box" id="secret-message">
+      Choose a little box to open it ♡
+    </div>
+  </section>
+
+  <!-- MEMORY WALL -->
+  <section class="panel">
+    <p>✦ OUR MEMORY ARCHIVE ✦</p>
+    <h2>OUR FAVOURITE MEMORIES 📸</h2>
+    <p>A little piece of us, forever ♡</p>
+
+    <div class="polaroid-wall">
+      <div class="polaroid" role="button" tabindex="0" onclick="showMemory(0)" onkeydown="if(event.key==='Enter')showMemory(0)">
+        <img src="couple1.jpg" alt="Our memory 1">
+      </div>
+
+      <div class="polaroid" role="button" tabindex="0" onclick="showMemory(1)" onkeydown="if(event.key==='Enter')showMemory(1)">
+        <img src="couple2.jpg" alt="Our memory 2">
+      </div>
+
+      <div class="polaroid" role="button" tabindex="0" onclick="showMemory(2)" onkeydown="if(event.key==='Enter')showMemory(2)">
+        <img src="couple3.jpg" alt="Our memory 3">
+      </div>
+
+      <div class="polaroid" role="button" tabindex="0" onclick="showMemory(3)" onkeydown="if(event.key==='Enter')showMemory(3)">
+        <img src="couple4.jpg" alt="Our memory 4">
+      </div>
+
+      <div class="polaroid" role="button" tabindex="0" onclick="showMemory(4)" onkeydown="if(event.key==='Enter')showMemory(4)">
+        <img src="couple5.jpg" alt="Our memory 5">
+      </div>
+
+      <div class="polaroid" role="button" tabindex="0" onclick="showMemory(5)" onkeydown="if(event.key==='Enter')showMemory(5)">
+        <img src="couple6.jpg" alt="Our memory 6">
+      </div>
+
+      <div class="polaroid" role="button" tabindex="0" onclick="showMemory(6)" onkeydown="if(event.key==='Enter')showMemory(6)">
+        <img src="couple7.jpg" alt="Our memory 7">
+      </div>
+    </div>
+
+    <p class="small-text">Psst... tap a photo to read a little note.</p>
+    <div class="message-box" id="memory-message">
+      I'm grateful for every little moments with you♡
+    </div>
+  </section>
+
+  <!-- COMFORT MESSAGES -->
+  <section class="panel">
+    <p>✦ FOR WHATEVER KIND OF DAY YOU'RE HAVING ✦</p>
+    <h2>OPEN WHEN YOU FEEL LIKE IT</h2>
+    <p>If I can't be there beside you, let these little messages keep you company.</p>
+
+    <button onclick="showMood(0)">IF YOU MISS ME 💌</button>
+    <button onclick="showMood(1)">IF YOU'RE TIRED ☁️</button>
+    <button onclick="showMood(2)">IF YOU ARE OVT 🌙</button>
+    <button onclick="showMood(3)">IF YOU NEED ME 🙋</button>
+
+    <div class="message-box" id="mood-message">
+      Pick whichever you need today. I'm sending you love already. ♡
+    </div>
+  </section>
+
+  <!-- LOVE LETTER -->
+  <section class="panel">
+    <p>✦ A MESSAGE FROM MY HEART ✦</p>
+    <h2>A LETTER FOR YOU 💌</h2>
+    <div id="letter" class="letter"></div>
+    <button onclick="showLetter()">READ AGAIN ♡</button>
+  </section>
+
+  <!-- QUESTIONS -->
+  <section class="panel">
+    <p>✦ A VERY IMPORTANT QUESTION ✦</p>
+    <h2>DO YOU LOVE ME???!!!</h2>
+    <button onclick="answer('OFC I KNOW YOU DO!!!!💋')">
+      YES, ALWAYS 
+    </button>
+    <button onclick="answer('I LOVE YOU EVEN MORE OK? 😤💗')">
+      I LOVE YOU MORE
+    </button>
+    <div class="message-box" id="answer"></div>
+  </section>
+
+  <!-- MUSIC -->
+  <section class="panel">
+    <p>✦ A LITTLE SOUNDTRACK FOR YOU ✦</p>
+    <h2>JUST LET IT PLAY ♡</h2>
+    <p class="small-text">A little music to keep you company while you explore HEHE</p>
+    <audio id="music" src="love-song.mp3" loop controls style="width:100%;"></audio>
+  </section>
+
+  <!-- SECRET ENDING -->
+  <section class="panel hidden" id="final-surprise">
+    <p>✦ YOU FOUND YOUR WAY HERE ✦</p>
+    <div class="pixel-art">🌟 💗 🌟</div>
+    <h1>ONE LAST THING, MY LOVE</h1>
+    <p>You made it through my little world, but here's the truth:</p>
+    <p>No website, no words, and no little game could ever fit all the love I have for you.</p>
+    <p>Thank you for being you, Shah.</p>
+    <h2>IF I HAD TO CHOOSE AGAIN, I'D STILL CHOOSE YOU. ♡</h2>
+    <button onclick="hearts(35)">SEND ME ALL THE HEARTS 💗</button>
+  </section>
+
+</div>
+
+<footer>
+  made with love, just for Shah ♡
+</footer>
+
+<script>
+const SECRET_PASSWORD = "1404";
+
+const LOVE_LETTER = `Dearest, Shah...
+
+Thank you for choosing me, for letting me be a part of your life, and for being someone I get to love. 
+I hope you’ll continue to choose me, even on the days when I’m not the easiest person to love. I know I can be moody and grumpy sometimes, but even on those days, having you around is still one of my favourite things.
+Please never think of yourself as a burden or a failure. You don’t have to be okay all the time, and you don’t have to have everything figured out to be worthy of love. 
+If we ever have a bad day, please don’t think you’re the reason everything went wrong. Sometimes, things just get difficult, and that doesn’t mean either of us has failed.
+I hope that, even on the days when you struggle to see anything good in yourself, you’ll remember that there’s someone who sees so much to love in you.
+Last but not least, if I could choose my favourite person in every universe, in every lifetime, and in every version of my life, I know I’d still find my way back to you.
+I love you, always. ♡
+
+— With Loves
+ WN `;
+
+// Edit these messages to make them more personal!
+const HEART_MESSAGES = [
+  "Shah, you have one of the most generous hearts I’ve ever known, and I hope you know how special that makes you to me♡",
+  "You made my day for simply existing",
+  "Sweetest and clingy soul that I wanna keep forever",
+  "You possess a beauty you might never recognise in yourself, but I see it in every part of you, inside and out",
+  "And I know I could count on you. Always"
+];
+
+const SECRET_MESSAGES = [
+  "My sweet, handsome, funny, clingy, grumpy boyyyyy♡",
+  "OMG I miss you again today, Sayang",
+  "I hope we get to make so many more memories together T_T",
+  "I want us to keep learning, growing and choosing each other. I Love You So Muchhhhhhhh."
+];
+
+const MEMORY_MESSAGES = [
+  "Putrajaya was so beautiful, I love us hereeeee",
+  "Tried out Cheevit Cheeva for the first time, and I'm glad to tried it with you hehe",
+  "haha, this on literally near our fav CU MART everytime!!!",
+  "Literally the day you decided NEVER AGAIN to Dodo T_T,  JAHATTTTT",
+  "I simply love this pic LOL I looked goofy asf",
+  "BUCUKNYA MUKA HAHAHAHHAHA",
+  "Our first photobooth hehe"
+];
+
+const MOOD_MESSAGES = [
+  "I miss you too, Sayang, send me a text anytime to let me know. You are 24 hours in my mind.",
+  "I'm rooting for you, Sayang. I always have your back and I believe in you.",
+  "We already promised we will make it together till the end. Right, Sayang? I want you and only you.",
+  "Just know I'm one call away. I love you always."
+];
+
+let points = 0;
+let heartMessageIndex = 0;
+
+const song = document.getElementById("music");
+
+document.getElementById("login").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const enteredPassword = document.getElementById("password").value.trim();
+
+  if (enteredPassword.toLowerCase() === SECRET_PASSWORD.toLowerCase()) {
+    document.getElementById("lock").classList.add("hidden");
+    document.getElementById("game").classList.remove("hidden");
+    document.getElementById("lock").classList.add("hidden");
+    document.getElementById("game").classList.remove("hidden");
+
+// Keep the page at the top after entering
+window.scrollTo(0, 0);
+
+showLetter();
+hearts(15);
+    showLetter();
+    hearts(15);
+
+    // Start music after the correct password is entered.
+    // Some browsers may still require a manual press of Play.
+    song.play().catch(() => {});
+  } else {
+    document.getElementById("error").textContent =
+      "NOT QUITE, MY LOVE. TRY AGAIN ♡";
+  }
+});
+
+function hearts(amount = 5) {
+  for (let i = 0; i < amount; i++) {
+    setTimeout(() => {
+      const heart = document.createElement("span");
+      heart.className = "heart";
+      heart.textContent = ["♥", "♡", "💗", "✨"][Math.floor(Math.random() * 4)];
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.fontSize = (18 + Math.random() * 20) + "px";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 4500);
+    }, i * 80);
+  }
+}
+
+setInterval(() => {
+  if (!document.getElementById("game").classList.contains("hidden")) {
+    hearts(1);
+  }
+}, 2200);
+
+function collect() {
+  if (points >= 5) {
+    document.getElementById("heart-message").textContent =
+      "You've collected all five hearts! Keep them safe, they're all yours. ♡";
+    return;
+  }
+
+  points++;
+  
+const heartButton = document.getElementById("collect-heart");
+heartButton.classList.remove("heart-tap");
+void heartButton.offsetWidth;
+heartButton.classList.add("heart-tap");
+
+  document.getElementById("score").textContent = "HEARTS: " + points + " / 5";
+  document.getElementById("meter-fill").style.width = (points / 5 * 100) + "%";
+
+  document.getElementById("heart-message").textContent =
+    HEART_MESSAGES[heartMessageIndex];
+
+  heartMessageIndex = (heartMessageIndex + 1) % HEART_MESSAGES.length;
+  hearts(5);
+
+  if (points === 5) {
+    document.getElementById("heart-reward").classList.remove("hidden");
+    document.getElementById("final-surprise").classList.remove("hidden");
+    hearts(18);
+  }
+}
+
+function revealSecret(index) {
+  document.getElementById("secret-message").textContent = SECRET_MESSAGES[index];
+  hearts(3);
+}
+
+function showMemory(index) {
+  document.getElementById("memory-message").textContent = MEMORY_MESSAGES[index];
+  hearts(2);
+}
+
+function showMood(index) {
+  document.getElementById("mood-message").textContent = MOOD_MESSAGES[index];
+  hearts(3);
+}
+
+function showLetter() {
+  document.getElementById("letter").textContent = LOVE_LETTER;
+}
+
+function answer(message) {
+  document.getElementById("answer").textContent = message;
+  hearts(12);
+}
+</script>
+
+</body>
+</html>
