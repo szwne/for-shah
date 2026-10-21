@@ -363,7 +363,7 @@ footer {
 </button>
 <p class="small-text">Tap my heart to discover what I truly think about you ♡</p>
 
-    <div class="message-box" id="heart-message">
+    <div class="message-box" id="heart-message"></div>
 
     <div id="heart-reward" class="message-box hidden">
       ✨ YOU UNLOCKED A LITTLE GIFT ✨
@@ -556,6 +556,8 @@ let points = 0;
 let heartMessageIndex = 0;
 
 const song = document.getElementById("music");
+song.loop = true;
+song.preload = "auto";
 
 document.getElementById("login").addEventListener("submit", function(e) {
   e.preventDefault();
@@ -578,7 +580,13 @@ hearts(15);
 
     // Start music after the correct password is entered.
     // Some browsers may still require a manual press of Play.
-    song.play().catch(() => {});
+    song.volume = 1;
+
+song.play().then(() => {
+    console.log("Music playing");
+}).catch(err => {
+    console.log(err);
+});
   } else {
     document.getElementById("error").textContent =
       "NOT QUITE, MY LOVE. TRY AGAIN ♡";
