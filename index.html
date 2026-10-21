@@ -564,12 +564,23 @@ let points = 0;
 let heartMessageIndex = 0;
 
 const song = document.getElementById("music");
+
 song.loop = true;
 song.preload = "auto";
 
-const song = document.getElementById("music");
-song.loop = true;
-song.preload = "auto";
+song.addEventListener("pause", () => {
+  setTimeout(() => {
+    if (song.paused) {
+      song.play().catch(() => {});
+    }
+  }, 500);
+});
+
+song.addEventListener("ended", () => {
+  song.currentTime = 0;
+  song.play().catch(() => {});
+});
+
 
 document.addEventListener("touchstart", () => {
   if (song.paused) {
