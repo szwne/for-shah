@@ -482,7 +482,15 @@ footer {
     <p>✦ A LITTLE SOUNDTRACK FOR YOU ✦</p>
     <h2>JUST LET IT PLAY ♡</h2>
     <p class="small-text">A little music to keep you company while you explore HEHE</p>
-    <audio id="music" src="love-song.mp3" loop controls style="width:100%;"></audio>
+    <audio
+  id="music"
+  src="love-song.mp3"
+  controls
+  loop
+  preload="auto"
+  playsinline
+  style="width:100%;">
+</audio>
   </section>
 
   <!-- SECRET ENDING -->
@@ -558,6 +566,16 @@ let heartMessageIndex = 0;
 const song = document.getElementById("music");
 song.loop = true;
 song.preload = "auto";
+
+const song = document.getElementById("music");
+song.loop = true;
+song.preload = "auto";
+
+document.addEventListener("touchstart", () => {
+  if (song.paused) {
+    song.play().catch(() => {});
+  }
+}, { once: true });
 
 document.getElementById("login").addEventListener("submit", function(e) {
   e.preventDefault();
